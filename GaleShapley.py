@@ -14,8 +14,6 @@ class Man:
     def preference(self, pref):
         self.pref = pref #each man has a preferred list of women
 
-    def proposal_update(self):
-        self.tracker += 1
 
 class Woman:
     def __init__(self, pref, id):
@@ -34,6 +32,7 @@ class Woman:
         self.engaged = True
         self.engaged_to = man
         print((self.engaged_to.id, self.id))
+
 
 class Prospective_Men:
     def __init__(self):
@@ -83,11 +82,11 @@ def stable_match(free_men, free_women):
 m1 = Man("m1")
 m2 = Man("m2")
 m3 = Man("m3")
-w1 = Woman([m3, m1, m2], "w1")
-w2 = Woman([m2, m1, m3], "w2")
-w3 = Woman([m1, m2, m3], "w3")
+w1 = Woman([m3, m2, m1], "w1")
+w2 = Woman([m1, m3, m2], "w2")
+w3 = Woman([m2, m1, m3], "w3")
 m1.preference([w1, w2, w3])
-m2.preference([w1, w2, w3])
+m2.preference([w1, w3, w2])
 m3.preference([w2, w1, w3])
 
 free_men = Prospective_Men()
